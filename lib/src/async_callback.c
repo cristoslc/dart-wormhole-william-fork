@@ -234,7 +234,7 @@ wrapped_context_t *new_wrapped_context(client_context_t clientCtx,
                                        .write = write_callback,
                                        .seek = seek_callback,
                                        .read = read_callback,
-                                       .free_client_ctx = free_context,
+                                        .free_client_ctx = (void (*)(client_context_t))free_context,
                                        .oom = abort}};
   return wctx;
 }
